@@ -34,7 +34,7 @@
             <ul class="dropdown-menu" role="menu">
               <% Category.all.each do |category| %>
                 <li class="<%= 'active' if params[:category] == category.name %>">
-                  <%= link_to category.name, books_path(category: category.name) %>
+                  <%= link_to category.name, books_path(category: category.name), class: "Links" %>
                 </li>
               <% end %>
             </ul>
@@ -52,7 +52,10 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= yield %>
-    <%= link_to "Home", root_path %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <!--<%= debug(params) if Rails.env.development? %>-->
   </body>
 </html>
